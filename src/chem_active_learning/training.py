@@ -48,7 +48,6 @@ def train_single_dkl(train_x, train_y, train_cfg, seed, progress_desc=None, show
         feature_extractor,
         kernel_lengthscale_min=float(train_cfg["kernel_lengthscale_min"])
     )
-    # likelihood = GaussianLikelihood()
     likelihood = GaussianLikelihood(
         noise_constraint=gpytorch.constraints.Interval(
             float(train_cfg["noise_lower"]),

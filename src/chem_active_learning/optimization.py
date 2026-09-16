@@ -37,17 +37,6 @@ def run_optimization_once(df, seed, current_round=0, verbose=True):
 
     choices_norm, choices_raw, (grid_ph, grid_time) = make_discrete_choices(x_stats, USE_LOG_TIME)
 
-    # np_state = np.random.get_state()
-    # torch_state = torch.get_rng_state()
-    #
-    # SHAP calculation is intentionally disabled for faster iterations.
-    # plot_comprehensive_shap(
-    #     model_nd, model_fe, choices_norm, choices_raw, y_stats, grid_ph, grid_time, filename_prefix="SHAP_Global"
-    # )
-    #
-    # np.random.set_state(np_state)
-    # torch.set_rng_state(torch_state)
-
     plot_tsne_latent(model_nd.models[0], X_norm, Y_std[:, 0], "Nd Recovery Features", "TSNE_Nd_Latent.png")
     
     def val_to_std_logit(val_pct, task_idx):
