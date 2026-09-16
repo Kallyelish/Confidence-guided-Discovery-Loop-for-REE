@@ -15,23 +15,6 @@ python run_optimization.py
 
 Results, plots, and the safe-region prediction table are written to `optimization_plots/`.
 
-## Reproducibility settings
-
-The main run calls `run_optimization_once(..., seed=100)`. Model initialization and training use deterministic PyTorch settings and these ensemble seeds:
-
-| Item | Value |
-| --- | --- |
-| Ensemble size | 5 models per target |
-| Base training seed | 20260403 |
-| Nd member seeds | 20261403–20261407 |
-| Fe member seeds | 20262403–20262407 |
-| Conformal miscoverage (`alpha`) | 0.10 |
-| Candidate batch size | 4 |
-| pH / time search range | 3.0–6.0 / 2–16 h |
-| Nd training | 500 epochs, lr 0.02 |
-| Fe training | 3000 epochs, lr 0.0025 |
-
-Dynamic gates are applied in every run. At round `r`, the Nd gate is `min(100 - 25 exp(-1.6r), 96)` %, and the Fe gate is `max(0.5 + 9.5 exp(-2r), 0.9)` %. No relaxed fallback is used if no safe candidate passes both conformal bounds.
 
 ## Repository layout
 
@@ -39,6 +22,4 @@ Dynamic gates are applied in every run. At round `r`, the Nd gate is `min(100 - 
 - `src/chem_active_learning/` — configuration, preprocessing, DKL ensembles, conformal prediction, acquisition, and visualization.
 - `scripts/` — optional data-preparation and plotting helpers.
 
-## Notes
 
-The repository is code-only. Do not commit experimental data or generated result files; both are ignored by Git.
