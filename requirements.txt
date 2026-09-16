@@ -1,0 +1,10 @@
+# python==3.10.12 
+--extra-index-url https://download.pytorch.org/whl/cu121
+
+torch==2.5.0+cu121
+botorch==0.15.1
+gpytorch==1.14.0
+numpy==2.1.2
+pandas==2.2.3
+scipy==1.15.2
+openpyxl==3.1.5

@@ -1,0 +1,19 @@
+﻿__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+
+optimization_plots/
+optimization_plots_no_gate/
+outputs/
+
+.DS_Store
+Thumbs.db
+
+# Code-only release: do not publish experimental data, documents, or ablations.
+data/
+docs/
+test_no_gate.py
+original_test.py
